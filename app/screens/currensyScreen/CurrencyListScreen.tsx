@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import CryptoService from '../../services/CryptoService';
@@ -40,26 +40,24 @@ const CurrencyListScreen: React.FC = () => {
     }
   };
 
-  useEffect(() => {
+  const handleSortChange = (newSort: SortOrder) => {
+    setSort(newSort);
     setOffset(0);
-    setCurrencies([]);
     fetchCurrencies();
-  }, [searchTerm, sort]);
-
-  useEffect(() => {
-    if (offset !== 0) {
-      fetchCurrencies();
-    }
-  }, [offset]);
-
-  const loadMoreCurrencies = () => {
-    setOffset(offset + 10);
   };
-
-  const debounced = useDebounceCallback(setSearchTerm, 500);
-
   const handleSearchTermChange = (text: string) => {
     debounced(text);
+  };
+
+  const debounced = useDebounceCallback(async (text: string) => {
+    setSearchTerm(text);
+    setOffset(0);
+    await fetchCurrencies();
+  }, 500);
+
+  const loadMoreCurrencies = async () => {
+    setOffset(prevOffset => prevOffset + 10);
+    await fetchCurrencies();
   };
 
   return (
@@ -70,7 +68,7 @@ const CurrencyListScreen: React.FC = () => {
         placeholder="Search for a currency..."
         onChangeText={handleSearchTermChange}
       />
-      <SortButtons changeSort={setSort} />
+      <SortButtons changeSort={handleSortChange} />
       <CurrencyList
         currencies={currencies}
         loadMoreCurrencies={loadMoreCurrencies}
