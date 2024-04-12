@@ -19,6 +19,7 @@ export default StyleSheet.create({
   currencyAmount: {
     fontSize: 32,
     marginRight: 10,
+    color: '#000',
   },
   currencyNameContainer: {
     flexDirection: 'row',
@@ -31,6 +32,7 @@ export default StyleSheet.create({
   },
   currencyCode: {
     fontSize: 24,
+    color: '#000',
   },
   convertButton: {
     width: 50,

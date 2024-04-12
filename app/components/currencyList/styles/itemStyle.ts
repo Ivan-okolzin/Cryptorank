@@ -18,6 +18,7 @@ export default StyleSheet.create({
   },
   currencyName: {
     fontSize: 18,
+    color: '#000',
   },
   currencySymbol: {
     fontSize: 16,

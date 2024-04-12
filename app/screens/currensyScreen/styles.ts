@@ -9,6 +9,7 @@ export default StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     padding: 20,
+    color: '#000',
   },
   searchInput: {
     fontSize: 18,
@@ -17,5 +18,6 @@ export default StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 10,
+    color: '#000',
   },
 });
