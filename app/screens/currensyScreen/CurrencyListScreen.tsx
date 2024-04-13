@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import CryptoService from '../../services/CryptoService';
@@ -39,6 +39,10 @@ const CurrencyListScreen: React.FC = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    fetchCurrencies();
+  }, []);
 
   const handleSortChange = (newSort: SortOrder) => {
     setSort(newSort);
