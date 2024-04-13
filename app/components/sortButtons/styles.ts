@@ -13,4 +13,7 @@ export default StyleSheet.create({
     color: '#000',
     borderRadius: 5,
   },
+  buttonText: {
+    color: '#000',
+  },
 });

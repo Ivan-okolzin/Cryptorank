@@ -9,22 +9,22 @@ const SortButtons = ({changeSort}) => {
       <TouchableOpacity
         style={styles.sortButton}
         onPress={() => changeSort(SortOrder.Rank)}>
-        <Text>Rank ↑</Text>
+        <Text style={styles.buttonText}>Rank ↑</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.sortButton}
         onPress={() => changeSort(SortOrder.RankDescending)}>
-        <Text>Rank ↓</Text>
+        <Text style={styles.buttonText}>Rank ↓</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.sortButton}
         onPress={() => changeSort(SortOrder.Price)}>
-        <Text>Price ↑</Text>
+        <Text style={styles.buttonText}>Price ↑</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.sortButton}
         onPress={() => changeSort(SortOrder.PriceDescending)}>
-        <Text>Price ↓</Text>
+        <Text style={styles.buttonText}>Price ↓</Text>
       </TouchableOpacity>
     </View>
   );
